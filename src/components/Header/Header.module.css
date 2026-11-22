@@ -1,0 +1,17 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+}
+
+.logoLink {
+    position: absolute;
+    top: 30px;
+    left: 45px;
+    text-decoration: none;
+}
+
+.logo {
+    height: 44px;
+    width: auto;
+} 

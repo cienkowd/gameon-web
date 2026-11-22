@@ -1,0 +1,478 @@
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.weekPicker {
+  min-width: 200px;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.weekPicker:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.reserveButton {
+  background-color: #E54A23;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 11px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background-color 0.2s;
+}
+
+.reserveButton:hover {
+  background-color: #D43912;
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.hoursBar {
+  display: flex;
+  align-items: stretch;
+  height: 30px;
+  position: relative;
+}
+
+.hoursContainer {
+  display: flex;
+  position: relative;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 59px,
+    #E5E5E5 59px,
+    #E5E5E5 60px
+  );
+  border-radius: 0 10px 10px 0;
+}
+
+.hourMark {
+  width: 60px; /* HOUR_WIDTH */
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  position: relative;
+}
+
+.hourMark::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 4px;
+  background-color: #666;
+}
+
+.daySchedule {
+  display: flex;
+  align-items: stretch;
+  height: 80px;
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.dayInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 200px;
+  padding: 0 20px;
+  border-right: 1px solid #E5E5E5;
+  background-color: #F8F8F8;
+  border-radius: 10px 0 0 10px;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+}
+
+.dayName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selectedText {
+  color: #E54A23;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.todayText {
+  color: #4D4D4D;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.daySchedule.selected .dayName {
+  color: #E54A23;
+}
+
+.dayDate {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.dayHours {
+  font-size: 14px;
+  color: #4D4D4D;
+}
+
+.scrollPageContainer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  overflow-x: auto;
+  background: #fff;
+  z-index: 2;
+}
+
+.openingHoursSection {
+  width: 100%;
+  min-width: unset;
+  margin: 0;
+  overflow-x: visible;
+}
+
+.timelineContainer {
+  position: relative;
+  background-color: #F8F8F8;
+  border-radius: 0 10px 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.daySchedule.selected .timelineContainer {
+  background-color: #F8F8F8;
+}
+
+.timeline {
+  position: relative;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 59px,
+    #E5E5E5 59px,
+    #E5E5E5 60px
+  );
+  border-radius: 0 10px 10px 0;
+}
+
+.timelineClosed {
+  background: repeating-linear-gradient(
+    45deg,
+    #f0f0f0,
+    #f0f0f0 10px,
+    #e8e8e8 10px,
+    #e8e8e8 20px
+  );
+}
+
+.eventCard {
+  position: absolute;
+  background-color: #DC6142;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+  max-width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  z-index: 2;
+}
+
+.eventCard:hover {
+  background-color: #b94d32;
+}
+
+.eventCard:nth-child(even) {
+  background-color: #c62828;
+}
+
+.eventCard + .eventCard {
+  margin-left: 2px;
+}
+
+.privateEvent {
+  cursor: default;
+}
+
+.eventName {
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.eventCard:hover .eventName {
+  display: none;
+}
+
+.timeRange {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.eventTypeText {
+  display: none;
+  font-size: 13px;
+}
+
+.viewLink {
+  display: none;
+  font-size: 13px;
+  text-decoration: underline;
+  color: white;
+}
+
+.eventCard:hover .eventTypeText,
+.eventCard:hover .viewLink {
+  display: block;
+}
+
+.eventCard:hover .timeText {
+  display: none;
+}
+
+.eventCard:hover .timeRange {
+  align-items: center;
+}
+
+.eventIcon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  margin-left: 4px;
+}
+
+.eventType {
+  font-size: 12px;
+  font-weight: 400;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.public {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2E7D32;
+}
+
+.private {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #C62828;
+}
+
+.approval {
+  background-color: rgba(255, 152, 0, 0.1);
+  color: #EF6C00;
+}
+
+/* Media Queries */
+@media (max-width: 1400px) {
+  .container {
+    overflow-x: auto;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .weekPicker {
+    width: 100%;
+  }
+
+  .reserveButton {
+    width: 100%;
+  }
+
+  .daySchedule {
+    height: 60px;
+  }
+  
+  .dayInfo {
+    min-width: 150px;
+    padding: 0 15px;
+  }
+  
+  .dayName {
+    font-size: 14px;
+  }
+  
+  .dayDate {
+    font-size: 12px;
+  }
+  
+  .dayHours {
+    font-size: 12px;
+  }
+  
+  .eventCard {
+    height: 50px;
+    padding: 8px;
+  }
+  
+  .eventName {
+    font-size: 12px;
+  }
+  
+  .timeRange {
+    font-size: 10px;
+  }
+  
+  .hourMark {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hoursBar {
+    display: none;
+  }
+
+  .daySchedule {
+    height: auto;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .dayInfo {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 10px 0;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .timeline {
+    height: 50px;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .eventCard {
+    position: relative;
+    width: 100% !important;
+    left: 0 !important;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.dateInput {
+  padding: 10px 15px;
+  border: 1px solid #D6D6D6;
+  border-radius: 11px;
+  font-size: 14px;
+  color: #4D4D4D;
+  outline: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.dateInput:hover {
+  border-color: #E54A23;
+}
+
+.dateInput:focus {
+  border-color: #E54A23;
+}
+
+/* Stylowanie kalendarza dla przeglądarek obsługujących te selektory */
+.dateInput::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 5px;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.dateInput::-webkit-calendar-picker-indicator:hover {
+  background-color: rgba(229, 74, 35, 0.1);
+}
+
+.dateInput::-webkit-datetime-edit {
+  padding: 0;
+}
+
+/* Stylowanie dla Firefox */
+.dateInput {
+  color-scheme: light;
+}
+
+.dateInput::-moz-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Stylowanie dla kalendarza */
+.dateInput::-webkit-datetime-edit-fields-wrapper { color: #4D4D4D; }
+.dateInput::-webkit-datetime-edit-text { color: #4D4D4D; padding: 0 2px; }
+.dateInput::-webkit-datetime-edit-month-field { color: #4D4D4D; }
+.dateInput::-webkit-datetime-edit-day-field { color: #4D4D4D; }
+.dateInput::-webkit-datetime-edit-year-field { color: #4D4D4D; }
+
+/* Dodanie koloru akcentu dla całej strony */
+:root {
+  accent-color: #E54A23;
+} 

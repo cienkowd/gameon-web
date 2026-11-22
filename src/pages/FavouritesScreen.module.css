@@ -1,0 +1,82 @@
+/* Kontener na kartę akcji */
+.singleCardContainer {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+    width: 100%;
+}
+
+.singleCardContainer .userActionCard {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Karta akcji dla użytkowników */
+.userActionCard {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px dashed #e54a23;
+    background: linear-gradient(135deg, #fff7f2 0%, #ffffff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+}
+
+.userActionCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(229, 74, 35, 0.15);
+    border-color: #d63910;
+}
+
+.userActionIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.userActionTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.userActionDesc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .singleCardContainer {
+        margin: 24px 0;
+    }
+    
+    .userActionCard {
+        padding: 24px 16px;
+        min-height: 150px;
+    }
+    
+    .userActionIcon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+    
+    .userActionTitle {
+        font-size: 18px;
+    }
+    
+    .userActionDesc {
+        font-size: 13px;
+    }
+} 

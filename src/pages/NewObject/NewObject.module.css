@@ -1,0 +1,242 @@
+@import "leaflet/dist/leaflet.css";
+
+.formContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 50px auto;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.heading {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 20px;
+    width: 100%;
+    min-width: 520px;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: -10px;
+    margin-top: 0;
+}
+
+.textareaContainer {
+    position: relative;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #e54a23;
+    border-radius: 20px;
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.textarea::-webkit-scrollbar-track {
+    margin-top: 15px;
+    margin-bottom: 14px;
+    border-radius: 20px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+    background-color: #e54a23;
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+.textareaCounter {
+    position: absolute;
+    bottom: -20px;
+    right: 0px;
+    font-size: 12px;
+    color: #e54a23;
+    padding: 2px 5px;
+}
+
+.textareaCounter.limitReached {
+    color: red;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.locationInput {
+    width: 100%;
+    max-width: 460px;
+    box-sizing: border-box;
+}
+
+.map {
+    width: 460px;
+    border: 1px solid #e54a23;
+    border-radius: 20px;
+    height: 392px;
+    z-index: 0;
+}
+
+.bottomRightStripe {
+    position: fixed;
+    bottom: -200px;
+    right: 600px;
+    width: 1200px;
+    height: 200px;
+    background-color: #221F1D;
+    clip-path: polygon(75% 0, 100% 100%, 0 100%, 20% 0);
+    transform: rotate(135deg);
+    transform-origin: bottom right;
+    z-index: 1;
+}
+
+.errorIcon {
+    margin-left: 8px;
+    color: #f25e5e;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.errorField {
+    border: 2px solid #f25e5e !important;
+    background-color: #f2f2f2 !important;
+}
+
+.imageUploadContainer {
+    width: 480px;
+    height: 272px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.imageUploadArea {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #e54a23;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageUploadArea.hasImage {
+    border: 2px solid #e54a23;
+    box-shadow: inset 0 0 0 1px #e54a23;
+}
+
+.imageUploadArea:hover {
+    background-color: #fff5f3;
+}
+
+.imageUploadArea.hasImage:hover .imagePreview {
+    filter: brightness(30%);
+}
+
+.imageUploadArea.hasImage:hover .changeImageText {
+    opacity: 1;
+}
+
+.changeImageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    transition: filter 0.3s ease;
+}
+
+.uploadPlaceholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.plusIcon {
+    font-size: 48px;
+    color: #e54a23;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .formContainer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .heading {
+        font-size: 48px;
+        min-width: auto;
+    }
+
+    .textareaContainer,
+    .map,
+    .imageUploadContainer {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .map {
+        height: 300px;
+    }
+} 

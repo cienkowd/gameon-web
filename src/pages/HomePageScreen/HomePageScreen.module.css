@@ -1,0 +1,766 @@
+/* Usuwam globalne style */
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.contentWrapper {
+    width: 100%;
+    max-width: 1820px;
+    padding: 20px;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+    margin-top: 37px;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+    padding: 0 16px 16px 16px;
+    scrollbar-width: none; /* Firefox */
+}
+.categories::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.eventsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 320px));
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    margin: 40px auto 0;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Sekcje dla właściciela */
+.eventsRow,
+.objectsRow,
+.fieldsRow {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto 40px;
+    box-sizing: border-box;
+}
+
+.eventsRow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+.objectsRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+.fieldsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+.eventsRow > *,
+.objectsRow > *,
+.fieldsRow > * {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.eventsRow > *:nth-child(7) {
+    display: none;
+}
+
+/* Responsive styles for owner view */
+@media (max-width: 1630px) {
+    .eventsRow {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1380px) {
+    .eventsRow {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .fieldsRow {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .eventsRow {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fieldsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .eventsRow,
+    .objectsRow,
+    .fieldsRow {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .contentWrapper {
+        padding: 0 20px;
+    }
+
+    .sectionTitle {
+        font-size: 17px;
+        margin: 15px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .eventsRow,
+    .objectsRow,
+    .fieldsRow {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .contentWrapper {
+        padding: 0 12px;
+    }
+
+    .loadMoreCentered {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.sectionTitle {
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin: 20px 0 24px;
+    text-align: left;
+    width: 100%;
+    padding-left: 8px;
+}
+
+.sportItem {
+    flex: 0 0 119px;
+    width: 119px;
+    height: 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.sportItem:hover {
+    transform: scale(1.1);
+}
+
+.sportItem span {
+    font-size: 14px;
+    margin-top: 0;
+    padding-top: 0;
+    transition: color 0.2s;
+}
+
+.sportItem:hover span {
+    color: #E54A23;
+}
+
+.sportItem.active span {
+    color: #E54A23;
+    font-weight: bold;
+}
+
+.sportItem::after {
+    content: "";
+    width: 50%;
+    height: 3px;
+    background-color: transparent;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.2s, width 0.2s;
+}
+
+.sportItem.active::after,
+.sportItem:hover::after {
+    background-color: #E54A23;
+    width: 90%;
+}
+
+.sportIcon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.filtersContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.filtersButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #BFBFBF;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    gap: 8px;
+    width: 86px;
+    height: 43px;
+}
+
+.filtersButton:hover {
+    background: #E54A23;
+    color: white;
+    border-color: #E54A23;
+}
+
+.filtersIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.containerOwner {
+    width: 100%;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .filtersContainer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end; /* Filtr na prawo */
+    }
+    .eventsContainer {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .eventsContainer {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 8px;
+    }
+}
+
+.categoriesWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.scrollButton {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 8px;
+    z-index: 2;
+    transition: background 0.2s;
+}
+.scrollButton:hover {
+    background: #eee;
+}
+
+@media (min-width: 1860px) {
+    .scrollButton {
+        display: none;
+    }
+    .categoriesWrapper {
+        justify-content: center;
+    }
+    .categories {
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.loadMoreCentered {
+    width: auto;
+    min-width: 140px;
+    max-width: 220px;
+    padding: 10px 18px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 24px !important;
+    display: block;
+    margin: 24px auto 0 auto;
+    background: #e54a23;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(229,74,35,0.08);
+}
+
+.loadMoreCentered:hover {
+    background: #d4411f;
+    color: #fff;
+}
+
+.onboardingBanner {
+    width: 100%;
+    background: linear-gradient(90deg, #ffe5d0 0%, #fff 100%);
+    border-radius: 18px;
+    margin-bottom: 32px;
+    padding: 32px 24px 32px 48px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(229,74,35,0.08);
+}
+
+.onboardingBannerContent {
+    max-width: 600px;
+}
+
+.onboardingBannerContent h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #e54a23;
+}
+
+.onboardingBannerContent p {
+    font-size: 16px;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+.onboardingCtaButton {
+    background: #e54a23;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(229,74,35,0.08);
+}
+
+.onboardingCtaButton:hover {
+    background: #d4411f;
+}
+
+.emptyFacilityCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e54a23;
+    border-radius: 16px;
+    padding: 40px 24px;
+    min-height: 180px;
+    width: 100%;
+    background: #fff7f2;
+    margin-bottom: 24px;
+}
+
+.emptyFacilityCard p {
+    font-size: 18px;
+    color: #e54a23;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.mockFacilityCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px dashed #e0e0e0;
+    border-radius: 16px;
+    padding: 32px 24px;
+    min-height: 140px;
+    width: 100%;
+    background: #faf9f7;
+    margin-bottom: 24px;
+    gap: 32px;
+    opacity: 0.85;
+}
+
+.mockFacilityImage {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f3f3f3 60%, #e0e0e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+}
+
+.mockFacilityInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mockFacilityTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #bdbdbd;
+}
+
+.mockFacilityDesc {
+    font-size: 15px;
+    color: #bdbdbd;
+}
+
+.mockEventCard {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: left;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 400px;
+    cursor: pointer;
+    border: 2px dashed #e0e0e0;
+    opacity: 0.8;
+}
+
+.mockEventCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+.mockEventImagePlaceholder {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #f0f0f0 60%, #e0e0e0 100%);
+    border-radius: 20px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mockEventImagePlaceholder::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: #e54a23;
+    border-radius: 6px;
+    position: relative;
+    display: block;
+    box-shadow: 0 2px 8px rgba(229, 74, 35, 0.2);
+}
+
+.mockEventImagePlaceholder::after {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 32px;
+    background: white;
+    border-radius: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    background-image: 
+        linear-gradient(to right, #e54a23 0%, #e54a23 100%),
+        linear-gradient(to right, #e54a23 0%, #e54a23 100%),
+        linear-gradient(to right, #e54a23 0%, #e54a23 100%),
+        linear-gradient(to right, #e54a23 0%, #e54a23 100%);
+    background-size: 
+        24px 1px,
+        20px 1px,
+        16px 1px,
+        12px 1px;
+    background-position: 
+        6px 8px,
+        6px 14px,
+        6px 20px,
+        6px 26px;
+    background-repeat: no-repeat;
+}
+
+.mockEventTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: 10px;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+
+.mockEventDesc {
+    margin: 10px 0;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    line-height: 1.4;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mockFieldCard {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: left;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 400px;
+    cursor: default;
+    border: 2px dashed #e0e0e0;
+    opacity: 0.8;
+}
+
+.mockFieldImagePlaceholder {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #f0f8f0 60%, #e0e0e0 100%);
+    border-radius: 20px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mockFieldImagePlaceholder::before {
+    content: "🏟️";
+    font-size: 60px;
+    opacity: 0.4;
+}
+
+.mockFieldTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    margin-top: 10px;
+    color: #bdbdbd;
+}
+
+.mockFieldDesc {
+    margin: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+
+.mockFieldSport {
+    font-size: 14px;
+    color: #999;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.mockFieldPlayers {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.createFacilityCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px dashed #e54a23;
+    border-radius: 16px;
+    padding: 32px 24px;
+    min-height: 140px;
+    width: 100%;
+    background: #fff7f2;
+    margin-bottom: 24px;
+    gap: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.createFacilityCard:hover {
+    background: #fff0e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 74, 35, 0.1);
+}
+
+.createFacilityIcon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e54a23;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+}
+
+.createFacilityInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.createFacilityTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e54a23;
+}
+
+.createFacilityDesc {
+    font-size: 15px;
+    color: #666;
+}
+
+/* Modal styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(229, 74, 35, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalTitle {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.modalText {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.modalButtons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.confirmButton {
+    background-color: #e54a23;
+    color: white;
+    font-weight: 400;
+    padding: 8px 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.confirmButton:hover {
+    background-color: #d4411f;
+}
+
+

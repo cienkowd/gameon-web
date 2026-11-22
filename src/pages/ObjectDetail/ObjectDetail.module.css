@@ -1,0 +1,468 @@
+/* Main container */
+.objectPage {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Object Banner */
+.objectBanner {
+  background-color: rgba(217, 217, 217, 1);
+  align-self: center;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  padding: 45px 16px 437px;
+  border-radius: 19px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Content Container */
+.contentContainer {
+  align-self: center;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 35%;
+  box-sizing: border-box;
+}
+
+/* Object Info Section */
+.objectInfo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  font-weight: normal;
+  padding: 31px 80px 51px 0;
+  border-bottom: 1px solid rgba(214, 214, 214, 1);
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-size: 26px;
+  color: black;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.objectDetails {
+  display: flex;
+  width: 100%;
+  max-width: 322px;
+  gap: 20px;
+  font-size: 12px;
+  color: rgba(77, 77, 77, 1);
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.playerLimit {
+  flex: 1;
+}
+
+.icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 18px;
+}
+
+/* Object Description */
+.objectDescription {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  font-weight: normal;
+  padding: 31px 80px 51px 0;
+  border-bottom: 1px solid rgba(214, 214, 214, 1);
+  box-sizing: border-box;
+}
+
+.descriptionText {
+  font-size: 12px;
+  color: rgba(77, 77, 77, 1);
+  margin-top: 8px;
+}
+
+/* Fields Section */
+.fieldsSection {
+  padding: 31px 0 51px;
+  border-bottom: 1px solid rgba(214, 214, 214, 1);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fieldsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin: 20px auto 0;
+}
+
+/* Events Section */
+.eventsSection {
+  padding: 31px 0 51px;
+  border-bottom: 1px solid rgba(214, 214, 214, 1);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.eventsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 20px auto 0;
+  max-width: calc(210px * 6 + 16px * 5);
+}
+
+.eventsRow > * {
+  width: 100%;
+  min-width: 210px;
+  box-sizing: border-box;
+}
+
+.eventsRow > *:nth-child(n+7) {
+  display: none;
+}
+
+@media (max-width: 1630px) {
+  .eventsRow > *:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 1380px) {
+  .eventsRow > *:nth-child(5) {
+    display: none;
+  }
+}
+
+/* Organizer Card */
+.organizerCard {
+  background-color: white;
+  box-shadow: 0px 3px 19px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  font-size: 12px;
+  font-weight: normal;
+  width: 100%;
+  margin-top: 31px;
+  padding: 23px 29px;
+  border-radius: 19px;
+  box-sizing: border-box;
+}
+
+.organizerAvatar {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 75px;
+  border-radius: 375px;
+}
+
+.organizerName {
+  color: black;
+  font-size: 22px;
+  margin-top: 13px;
+  text-align: center;
+}
+
+.organizerEmail {
+  color: rgba(113, 113, 113, 1);
+  margin-top: 7px;
+}
+
+.joinButton {
+  background-color: #E54A23;
+  align-self: stretch;
+  overflow: hidden;
+  color: white;
+  white-space: nowrap;
+  margin-top: 20px;
+  padding: 10px 70px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  font-weight: normal;
+}
+
+.joinButton:hover {
+  background-color: #D43912;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .objectBanner {
+    margin-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 200px;
+  }
+
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .mainContent, .sidebar {
+    width: 100%;
+  }
+
+  .mainContent {
+    margin-top: 40px;
+  }
+
+  .objectInfo, .objectDescription {
+    padding-right: 20px;
+    max-width: 100%;
+  }
+
+  .organizerCard {
+    margin-top: 20px;
+  }
+
+  .joinButton {
+    padding: 10px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .openingHoursSection {
+    padding-right: 20px;
+  }
+}
+
+.ownerActions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.objectButton {
+  padding: 10px 30px;
+  background-color: white;
+  border: 1px solid #E54A23;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #E54A23;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.objectButton:hover {
+  background-color: #f5f5f5;
+}
+
+.editButton {
+  padding: 10px 40px;
+  background-color: #E54A23;
+  border: 1px solid #E54A23;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editButton:hover {
+  background-color: #D43912;
+}
+
+.deleteIconWrapper {
+  position: relative;
+  width: 41px;
+  height: 41px;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.deleteIconHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.deleteIconWrapper:hover .deleteIcon {
+  opacity: 0;
+}
+
+.deleteIconWrapper:hover .deleteIconHover {
+  opacity: 1;
+}
+
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.deleteButton:hover {
+  background-color: #ffebeb;
+}
+
+.deleteButton img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(229, 74, 35, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalTitle {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.modalText {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.modalSubText {
+  font-size: 14px;
+  color: #999;
+  margin-top: -15px;
+  margin-bottom: 25px;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.cancelButton {
+  background-color: transparent !important;
+  font-weight: 400 !important;
+  padding: 8px 25px !important;
+  font-size: 14px !important;
+  color: #e54a23 !important;
+  border: 1px solid #e54a23 !important;
+  border-radius: 20px !important;
+}
+
+.cancelButton:hover {
+  background-color: rgba(229, 74, 35, 0.1) !important;
+}
+
+.confirmButton {
+  background-color: #e54a23 !important;
+  font-weight: 400 !important;
+  padding: 8px 25px !important;
+  font-size: 14px !important;
+  border-radius: 20px !important;
+}
+
+.confirmButton:hover {
+  background-color: #d4411f !important;
+}
+
+.deleteConfirmButton {
+  background-color: #dc3545 !important;
+}
+
+.deleteConfirmButton:hover {
+  background-color: #c82333 !important;
+} 

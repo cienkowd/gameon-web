@@ -1,0 +1,147 @@
+.extraActions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+}
+
+.createButton {
+    padding: 8px 16px;
+    background-color: #E54A23;;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+    background-color: #E63E00;
+}
+
+.createButtonUser {
+    composes: createButton;
+}
+
+.createButtonOwner {
+    composes: createButton;
+}
+
+@media (max-width: 1830px) {
+    .createButtonUser {
+        display: none;
+    }
+}
+
+@media (max-width: 1300px) {
+    .createButtonOwner {
+        display: none;
+    }
+}
+
+.createPlus {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.settingsIcon {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.settingsIcon:hover {
+    background-color: #f5f5f5;
+}
+
+.dotRow {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.dotRow:last-child {
+    margin-bottom: 0;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #666;
+    border-radius: 50%;
+}
+
+.profileIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profileIcon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.settingsContainer {
+    display: flex;
+    align-items: center;
+}
+
+.dropdownMenu {
+    position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.dropdownMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdownMenu li {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdownMenu li:hover {
+    background-color: #f5f5f5;
+}
+
+.activeOption {
+    color: #E54A23;
+}
+
+@media (max-width: 1830px) {
+    .dot {
+        background-color: #E54A23;
+    }
+}
+
+@media (max-width: 1300px) {
+    .dot {
+        /* background: */
+    }
+}
+
+.logoutOption {
+  color: #e54a23 !important;
+  font-weight: bold;
+}

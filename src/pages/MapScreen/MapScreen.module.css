@@ -1,0 +1,112 @@
+.mapLayout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.eventsList {
+  flex-basis: 40%;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid #eee;
+  z-index: 2;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.03);
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mapWrapper {
+  flex-basis: 60%;
+  height: 100vh;
+  position: relative;
+  background: #fff;
+  border-right: none;
+  box-shadow: none;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .mapLayout {
+    flex-direction: column;
+  }
+  .eventsList {
+    width: 100vw;
+    height: 40vh;
+    max-width: 100vw;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .mapWrapper {
+    width: 100vw;
+    height: 60vh;
+  }
+}
+
+.fabHome {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1001;
+  background: #e54a23;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.fabHome:hover {
+  background: #c43d1a;
+}
+
+.loading, .error {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.95);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.error {
+  color: #e54a23;
+}
+
+.eventsList > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+.noEventsMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  color: #b0b0b0;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  border: none;
+  min-height: 300px;
+} 

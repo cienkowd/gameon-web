@@ -1,0 +1,71 @@
+.headerWrapper {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1820px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logoLink {
+    position: absolute;
+    left: 40px;
+    top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 44px;
+    width: auto;
+}
+
+.navLinks {
+    display: flex;
+    gap: 30px;  
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.activeLink, .inactiveLink {
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.activeLink {
+    color: black;
+    text-decoration: none !important;
+}
+
+.inactiveLink {
+    color: #C8C8C6;
+    text-decoration: none !important;
+}
+
+.inactiveLink:hover {
+    color: black;
+}
+
+.extraActionsWrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10%;
+} 
